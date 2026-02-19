@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Forside{% endblock %}
+
+{% block content %}
+  <h2>Innlegg</h2>
+
+  {% for post in posts %}
+    <article>
+      <h3>
+        <a href="{{ url_for('view_post', post_id=post['id']) }}">
+          {{ post['title'] }}
+        </a>
+      </h3>
+      <p><small>{{ post['date'] }}</small></p>
+      <p>{{ post['excerpt'] }}</p>
+    </article>
+    <hr>
+  {% endfor %}
+{% endblock %}

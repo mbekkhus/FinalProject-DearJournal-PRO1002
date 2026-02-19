@@ -1,0 +1,9 @@
+
+
+“Open http://127.0.0.1:5001”
+
+Run the app:
+.venv/bin/python3 app.py
+
+Open:
+http://127.0.0.1:5001

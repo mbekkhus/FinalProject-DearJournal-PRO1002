@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ post['title'] }}{% endblock %}
+
+{% block content %}
+  <article>
+    <h2>{{ post['title'] }}</h2>
+    <p><small>{{ post['date'] }}</small></p>
+    <div style="white-space: pre-wrap;">{{ post['body'] }}</div>
+  </article>
+
+  <p><a href="{{ url_for('index') }}">← Tilbake</a></p>
+{% endblock %}

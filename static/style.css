@@ -1,0 +1,10 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: system-ui, Arial;
+}
+
+a {
+  text-decoration: none;
+}
