@@ -8,5 +8,34 @@
     <div style="white-space: pre-wrap;">{{ post['body'] }}</div>
   </article>
 
+  <hr>
+
+  <h3>Kommentarer</h3>
+
+  {% if post["comments"] %}
+    <ul>
+      {% for comment in post["comments"] %}
+        <li>{{ comment }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Ingen kommentarer enda.</p>
+  {% endif %}
+
+  <hr>
+
+  <h3>Legg til kommentar</h3>
+
+  <form method="post">
+    <p>
+      <label for="comment">Kommentar:</label><br>
+      <textarea name="comment" id="comment" rows="4" cols="40"></textarea>
+    </p>
+
+    <p>
+      <button type="submit">Send kommentar</button>
+    </p>
+  </form>
+
   <p><a href="{{ url_for('index') }}">← Tilbake</a></p>
 {% endblock %}

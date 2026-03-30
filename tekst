@@ -1,0 +1,4 @@
+start prosjektet, skriv i terminal: 
+cd ~/Desktop/blogg-app
+source .venv/bin/activate
+.venv/bin/python3 app.py
