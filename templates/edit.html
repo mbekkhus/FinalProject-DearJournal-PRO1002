@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Rediger innlegg{% endblock %}
+
+{% block content %}
+  <h2>Rediger innlegg</h2>
+
+  <form method="post">
+    <p>
+      <label>Tittel:</label><br>
+      <input type="text" name="title" value="{{ post['title'] }}" required>
+    </p>
+
+    <p>
+      <label>Dato:</label><br>
+      <input type="date" name="date" value="{{ post['date'] }}" required>
+    </p>
+
+    <p>
+      <label>Innhold:</label><br>
+      <textarea name="body" rows="12" style="width: 100%;" required>{{ post['body'] }}</textarea>
+    </p>
+
+    <button type="submit">Lagre endringer</button>
+  </form>
+{% endblock %}

@@ -32,10 +32,29 @@ def get_comments(post_id):
     return comments
 
 
-def add_comment(post_id, content):
+def add_comment(post_id, author, content):
     conn = get_connection()
     conn.execute(
-        "INSERT INTO comments (post_id, content) VALUES (?, ?)", (post_id, content)
+        "INSERT INTO comments (post_id, author, content) VALUES (?, ?, ?)",
+        (post_id, author, content)
+    )
+    conn.commit()
+    conn.close()
+
+def add_post(title, date, body):
+    conn = get_connection()
+    conn.execute(
+        "INSERT INTO posts (title, date, body) VALUES (?, ?, ?)",
+        (title, date, body)
+    )
+    conn.commit()
+    conn.close()
+
+def update_post(post_id, title, date, body):
+    conn = get_connection()
+    conn.execute(
+        "UPDATE posts SET title = ?, date = ?, body = ? WHERE id = ?",
+        (title, date, body, post_id)
     )
     conn.commit()
     conn.close()

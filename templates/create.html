@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Nytt innlegg{% endblock %}
+
+{% block content %}
+  <h2>Nytt</h2>
+
+  <form method="post">
+    <p>
+      <label for="title">Tittel:</label><br>
+      <input type="text" name="title" id="title" required>
+    </p>
+
+    <p>
+      <label for="date">Dato:</label><br>
+      <input type="date" name="date" id="date" required>
+    </p>
+
+    <p>
+      <label for="body">Innhold:</label><br>
+      <textarea name="body" id="body" rows="15" style="width: 100%;"></textarea>
+    </p>
+
+    <p>
+      <button type="submit">Lagre innlegg</button>
+    </p>
+  </form>
+
+  <p><a href="{{ url_for('index') }}">← Tilbake</a></p>
+{% endblock %}
