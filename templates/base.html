@@ -1,18 +1,30 @@
 <!doctype html>
 <html lang="no">
+
 <head>
   <meta charset="utf-8">
   <title>{% block title %}Blogg{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
-    <h1><a href="{{ url_for('index') }}">Min blogg</a></h1>
-    <nav>
-  <a href="{{ url_for('create_post') }}">Nytt innlegg</a>
-</nav>
+    <div class="header-inner">
+      <h1><a href="{{ url_for('index') }}">Min blogg</a></h1>
+      <nav>
+        <a href="{{ url_for('create_post') }}">Nytt innlegg</a>
+      </nav>
+    </div>
     <hr>
   </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <p>Personal blog</p>
+      <h2>Stories, thoughts & processes</h2>
+    </div>
+  </section>
 
   <main>
     {% block content %}{% endblock %}
@@ -21,6 +33,10 @@
   <footer>
     <hr>
     <small>Flask + SQLite</small>
+    <small>
+      Images from Unsplash
+    </small>
   </footer>
 </body>
+
 </html>

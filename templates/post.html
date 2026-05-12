@@ -11,42 +11,43 @@
   </p>
 
   <div style="white-space: pre-wrap;">{{ post['body'] }}</div>
+  <p class="signature">-marte</p>
 </article>
 
-  <hr>
+<hr>
 
-  <h3>Kommentarer</h3>
+<h3>Kommentarer</h3>
 
 <div>
   {% for comment in comments %}
-    <p>
-      <strong>{{ comment['author'] }}</strong><br>
-      {{ comment['content'] }}
-    </p>
+  <p>
+    <strong>{{ comment['author'] }}</strong><br>
+    {{ comment['content'] }}
+  </p>
   {% else %}
-    <p>Ingen kommentarer enda.</p>
+  <p>Ingen kommentarer enda.</p>
   {% endfor %}
 </div>
 
-  <hr>
+<hr>
 
-  <h3>Legg til kommentar</h3>
+<h3>Legg til kommentar</h3>
 
-  <form method="post">
-    <p>
-      <label for="author">Navn:</label><br>
-      <input type="text" name="author" id="author" required>
-    </p>
+<form method="post">
+  <p>
+    <label for="author">Navn:</label><br>
+    <input type="text" name="author" id="author" class="comment-field" required>
+  </p>
 
-    <p>
-      <label for="comment">Kommentar:</label><br>
-      <textarea name="comment" id="comment" rows="6" style="width: 50%;"></textarea>
-    </p>
+  <p>
+    <label for="comment">Kommentar:</label><br>
+    <textarea name="comment" id="comment" rows="6" class="comment-field"></textarea>
+  </p>
 
-    <p>
-      <button type="submit">Send kommentar</button>
-    </p>
-  </form>
+  <p>
+    <button type="submit">Send kommentar</button>
+  </p>
+</form>
 
-  <p><a href="{{ url_for('index') }}">← Tilbake</a></p>
+<p><a href="{{ url_for('index') }}">← Tilbake</a></p>
 {% endblock %}

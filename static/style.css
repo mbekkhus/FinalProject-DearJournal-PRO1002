@@ -1,10 +1,174 @@
-body {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px;
-  font-family: system-ui, Arial;
+main a {
+  opacity: 0.7;
+}
+
+main a:hover {
+  opacity: 1;
 }
 
 a {
+  color: #2f2a26;
   text-decoration: none;
+}
+
+a:visited {
+  color: #2f2a26;
+}
+
+a:hover {
+  border-bottom: 1px solid #2f2a26;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ebe6dc;
+  color: #2f2a26;
+}
+
+header, footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+header h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+header a {
+  color: #2f2a26;
+  text-decoration: none;
+}
+
+nav a {
+  position: relative;
+  top: 12px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2f2a26;
+  border-bottom: 1px solid transparent;
+}
+
+nav a:hover {
+  border-bottom: 1px solid #2f2a26;
+}
+
+main {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 48px;
+  background: #f8f5ef;
+  border: 1px solid #d2c8b8;
+}
+
+.hero {
+  max-width: 1000px;
+  height: 320px;
+  margin: 32px auto;
+  background-image: url("/static/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #d2c8b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  text-align: center;
+  color: #fffdf8;
+  background: rgba(47, 42, 38, 0.35);
+  padding: 32px 48px;
+}
+
+.hero-overlay h2 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+h2 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.signature {
+  font-family: "Allura", cursive;
+  font-size: 2rem;
+  display: inline-block;
+  margin-top: 24px;
+  opacity: 0.85;
+  margin-left: 8px;
+  border-top: 1px solid #d2c8b8; /* litt usikker på om jeg vil ha denne */
+  padding-top: 12px; /* hører til den over */
+  width: fit-content; /* hører til den over */
+}
+
+article {
+  border-top: 1px solid #d2c8b8;
+  padding: 28px 0;
+}
+
+article a {
+  color: #2f2a26;
+  text-decoration: none;
+}
+
+article a:hover {
+  border-bottom: 1px solid #2f2a26;
+}
+
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #c8bcaa;
+  background: #fffdf8;
+  font: inherit;
+}
+
+button {
+  padding: 12px 20px;
+  border: 1px solid #2f2a26;
+  background: #2f2a26;
+  color: #fffdf8;
+  cursor: pointer;
+}
+
+button:hover {
+  background: transparent;
+  color: #2f2a26;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d2c8b8;
+}
+
+.comment-field{
+  width: 50%;
+  padding: 6px;
+  font-size: 0.9rem;
+  border: 1px solid #d2c8b8;
+  background: #fffdf8;
 }
