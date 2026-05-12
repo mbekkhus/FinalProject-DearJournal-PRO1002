@@ -1,11 +1,3 @@
-main a {
-  opacity: 0.7;
-}
-
-main a:hover {
-  opacity: 1;
-}
-
 a {
   color: #2f2a26;
   text-decoration: none;
@@ -19,6 +11,14 @@ a:hover {
   border-bottom: 1px solid #2f2a26;
 }
 
+main a {
+  opacity: 0.7;
+}
+
+main a:hover {
+  opacity: 1;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -26,7 +26,8 @@ body {
   color: #2f2a26;
 }
 
-header, footer {
+header,
+footer {
   max-width: 1000px;
   margin: 0 auto;
   padding: 24px 32px;
@@ -48,18 +49,12 @@ header h1 {
   margin-bottom: 8px;
 }
 
-header a {
-  color: #2f2a26;
-  text-decoration: none;
-}
-
 nav a {
   position: relative;
   top: 12px;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #2f2a26;
   border-bottom: 1px solid transparent;
 }
 
@@ -79,7 +74,7 @@ main {
   max-width: 1000px;
   height: 320px;
   margin: 32px auto;
-  background-image: url("/static/hero.jpg");
+  background-image: url("/static/images/abstract-wavy.jpg");
   background-size: cover;
   background-position: center;
   border: 1px solid #d2c8b8;
@@ -91,12 +86,24 @@ main {
 .hero-overlay {
   text-align: center;
   color: #fffdf8;
-  background: rgba(47, 42, 38, 0.35);
+  background: rgba(47, 42, 38, 0.25);
   padding: 32px 48px;
 }
 
+.hero-overlay p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
 .hero-overlay h2 {
+  font-family: "Playfair Display", serif;
   font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -111,44 +118,48 @@ h3 {
   font-weight: 400;
 }
 
-.signature {
-  font-family: "Allura", cursive;
-  font-size: 2rem;
-  display: inline-block;
-  margin-top: 24px;
-  opacity: 0.85;
-  margin-left: 8px;
-  border-top: 1px solid #d2c8b8; /* litt usikker på om jeg vil ha denne */
-  padding-top: 12px; /* hører til den over */
-  width: fit-content; /* hører til den over */
-}
-
 article {
   border-top: 1px solid #d2c8b8;
   padding: 28px 0;
 }
 
-article a {
-  color: #2f2a26;
-  text-decoration: none;
-}
-
-article a:hover {
-  border-bottom: 1px solid #2f2a26;
+.signature {
+  font-family: "Allura", cursive;
+  font-size: 2rem;
+  display: inline-block;
+  margin-top: 24px;
+  margin-left: 8px;
+  opacity: 0.85;
+  border-top: 1px solid #d2c8b8;
+  padding-top: 12px;
+  width: fit-content;
 }
 
 input,
 textarea {
-  width: 100%;
   box-sizing: border-box;
-  padding: 12px;
-  border: 1px solid #c8bcaa;
+  border: 1px solid #d2c8b8;
   background: #fffdf8;
   font: inherit;
 }
 
+.form-field,
+.comment-field {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.comment-field {
+  width: 85%;
+}
+
 button {
-  padding: 12px 20px;
+  margin-top: 4px;
+  padding: 10px 18px;
   border: 1px solid #2f2a26;
   background: #2f2a26;
   color: #fffdf8;
@@ -165,10 +176,30 @@ hr {
   border-top: 1px solid #d2c8b8;
 }
 
-.comment-field{
-  width: 50%;
-  padding: 6px;
-  font-size: 0.9rem;
-  border: 1px solid #d2c8b8;
-  background: #fffdf8;
+.comment-form {
+  margin-top: 40px;
+  max-width: 640px;
+}
+
+.comment-form h3 {
+  margin-bottom: 28px;
+}
+
+.comment-form p {
+  margin-bottom: 20px;
+}
+
+.comment-form label,
+.form-section label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.form-section p {
+  margin-bottom: 18px;
+}
+
+.back-link {
+  margin-top: 32px;
 }

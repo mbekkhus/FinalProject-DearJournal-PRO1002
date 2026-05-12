@@ -6,14 +6,17 @@
   <title>{% block title %}Blogg{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <header>
     <div class="header-inner">
-      <h1><a href="{{ url_for('index') }}">Min blogg</a></h1>
+      <h1><a href="{{ url_for('index') }}">My journal</a></h1>
       <nav>
-        <a href="{{ url_for('create_post') }}">Nytt innlegg</a>
+        <a href="{{ url_for('create_post') }}">New post</a>
       </nav>
     </div>
     <hr>
@@ -21,8 +24,8 @@
 
   <section class="hero">
     <div class="hero-overlay">
-      <p>Personal blog</p>
-      <h2>Stories, thoughts & processes</h2>
+      <p>Personal journal</p>
+      <h2>Stories, thoughts & slow moments</h2>
     </div>
   </section>
 

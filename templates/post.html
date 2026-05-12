@@ -7,7 +7,7 @@
 
   <p>
     <small>{{ post['date'] }}</small> |
-    <a href="{{ url_for('edit_post', post_id=post['id']) }}">Rediger</a>
+    <a href="{{ url_for('edit_post', post_id=post['id']) }}">Edit</a>
   </p>
 
   <div style="white-space: pre-wrap;">{{ post['body'] }}</div>
@@ -16,7 +16,7 @@
 
 <hr>
 
-<h3>Kommentarer</h3>
+<h3>Comments</h3>
 
 <div>
   {% for comment in comments %}
@@ -25,29 +25,33 @@
     {{ comment['content'] }}
   </p>
   {% else %}
-  <p>Ingen kommentarer enda.</p>
+  <p>No comments yet.</p>
   {% endfor %}
 </div>
 
 <hr>
 
-<h3>Legg til kommentar</h3>
+<section class="comment-form">
+  <h3>Leave a comment</h3>
 
-<form method="post">
-  <p>
-    <label for="author">Navn:</label><br>
-    <input type="text" name="author" id="author" class="comment-field" required>
-  </p>
+  <form method="post">
+    <p>
+      <label for="author">Name:</label>
+      <input type="text" name="author" id="author" class="comment-field" required>
+    </p>
 
-  <p>
-    <label for="comment">Kommentar:</label><br>
-    <textarea name="comment" id="comment" rows="6" class="comment-field"></textarea>
-  </p>
+    <p>
+      <label for="comment">Say something:</label>
+      <textarea name="comment" id="comment" rows="6" class="comment-field"></textarea>
+    </p>
 
-  <p>
-    <button type="submit">Send kommentar</button>
-  </p>
-</form>
+    <p>
+      <button type="submit">Send comment</button>
+    </p>
+  </form>
+</section>
 
-<p><a href="{{ url_for('index') }}">← Tilbake</a></p>
+<p class="back-link">
+  <a href="{{ url_for('index') }}">← Back</a>
+</p>
 {% endblock %}
