@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ tag_name }}{% endblock %}
+
+{% block content %}
+<h2 class="section-label">#{{ tag_name }}</h2>
+
+{% for item in posts_with_tags %}
+{% set post = item.post %}
+
+<article class="post-preview">
+
+    <img src="{{ url_for('static', filename='images/' ~ post['image']) }}" class="post-image">
+
+    <div class="post-content">
+        <p class="post-date">{{ post['date'] }}</p>
+
+        <h3>
+            <a href="{{ url_for('view_post', post_id=post['id']) }}">
+                {{ post['title'] }}
+            </a>
+        </h3>
+
+        <p>{{ post['body'][:120] }}...</p>
+
+    </div>
+
+</article>
+
+{% endfor %}
+{% endblock %}

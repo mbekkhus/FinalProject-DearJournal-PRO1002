@@ -4,7 +4,9 @@
 {% block content %}
 <h2 class="section-label">Latest</h2>
 
-{% for post in posts %}
+{% for item in posts_with_tags %}
+{% set post = item.post %}
+
 <article class="post-preview">
 
   <img src="{{ url_for('static', filename='images/' ~ post['image']) }}" alt="Post image" class="post-image">
@@ -19,8 +21,19 @@
     </h3>
 
     <p>{{ post['body'][:120] }}...</p>
+
+    <!-- TAGS -->
+    <div class="post-tags">
+      {% for tag in item.tags %}
+      <a href="{{ url_for('tag_page', tag_name=tag['name']) }}">
+        {{ tag['name'] }}
+      </a>
+      {% endfor %}
+    </div>
+
   </div>
 
 </article>
+
 {% endfor %}
 {% endblock %}

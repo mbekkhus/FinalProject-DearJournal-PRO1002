@@ -32,29 +32,63 @@ def get_comments(post_id):
     return comments
 
 
-def add_comment(post_id, author, content):
+def add_comment(post_id, title, author, date, content):
     conn = get_connection()
     conn.execute(
-        "INSERT INTO comments (post_id, author, content) VALUES (?, ?, ?)",
-        (post_id, author, content)
+        "INSERT INTO comments (post_id, title, author, date, content) VALUES (?, ?, ?, ?, ?)",
+        (post_id, title, author, date, content),
     )
     conn.commit()
     conn.close()
 
+
 def add_post(title, date, body):
     conn = get_connection()
     conn.execute(
-        "INSERT INTO posts (title, date, body) VALUES (?, ?, ?)",
-        (title, date, body)
+        "INSERT INTO posts (title, date, body) VALUES (?, ?, ?)", (title, date, body)
     )
     conn.commit()
     conn.close()
+
 
 def update_post(post_id, title, date, body):
     conn = get_connection()
     conn.execute(
         "UPDATE posts SET title = ?, date = ?, body = ? WHERE id = ?",
-        (title, date, body, post_id)
+        (title, date, body, post_id),
     )
     conn.commit()
     conn.close()
+
+
+def get_tags_for_post(post_id):
+    conn = get_connection()
+    tags = conn.execute(
+        """
+        SELECT tags.*
+        FROM tags
+        JOIN post_tags ON tags.id = post_tags.tag_id
+        WHERE post_tags.post_id = ?
+        ORDER BY tags.name
+        """,
+        (post_id,),
+    ).fetchall()
+    conn.close()
+    return tags
+
+
+def get_posts_by_tag(tag_name):
+    conn = get_connection()
+    posts = conn.execute(
+        """
+        SELECT posts.*
+        FROM posts
+        JOIN post_tags ON posts.id = post_tags.post_id
+        JOIN tags ON tags.id = post_tags.tag_id
+        WHERE tags.name = ?
+        ORDER BY posts.date DESC
+        """,
+        (tag_name,),
+    ).fetchall()
+    conn.close()
+    return posts

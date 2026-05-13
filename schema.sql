@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS post_tags;
+DROP TABLE IF EXISTS tags;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS posts;
 
@@ -12,9 +14,24 @@ CREATE TABLE posts (
 CREATE TABLE comments (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     post_id INTEGER NOT NULL,
+    title TEXT NOT NULL,
     author TEXT NOT NULL,
+    date TEXT NOT NULL,
     content TEXT NOT NULL,
     FOREIGN KEY (post_id) REFERENCES posts(id)
+);
+
+CREATE TABLE tags (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE post_tags (
+    post_id INTEGER NOT NULL,
+    tag_id INTEGER NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES posts(id),
+    FOREIGN KEY (tag_id) REFERENCES tags(id),
+    PRIMARY KEY (post_id, tag_id)
 );
 
 -- Eksempel innlegg
@@ -39,7 +56,7 @@ VALUES (
   'Rolig morgen',
   '2026-04-14',
   'En kopp kaffe, litt tid alene og mange ideer. I dag har jeg brukt tid på spacing og typografi. Små endringer, men det gjør faktisk stor forskjell.',
-  'soft-wall-curtian.jpg'
+  'soft-wall-curtain.jpg'
 );
 
 INSERT INTO posts (title, date, body, image)
@@ -59,8 +76,31 @@ VALUES (
 );
 
 -- Eksempel kommentarer
-INSERT INTO comments (post_id, author, content)
-VALUES (1, 'Marte', 'Dette var bra!');
+INSERT INTO comments (post_id, title, author, date, content)
+VALUES (1, 'Fin lesning', 'Hillevi', '2026-04-16', 'Flott innlegg!');
 
-INSERT INTO comments (post_id, author, content)
-VALUES (1, 'Ola', 'Enig!');
+INSERT INTO comments (post_id, title, author, date, content)
+VALUES (1, 'Enig', 'Alf', '2026-04-16', 'Enig!');
+
+-- Tags
+INSERT INTO tags (name) VALUES ('hverdag');
+INSERT INTO tags (name) VALUES ('design');
+INSERT INTO tags (name) VALUES ('prosess');
+INSERT INTO tags (name) VALUES ('ro');
+INSERT INTO tags (name) VALUES ('struktur');
+
+-- Koble innlegg til tags
+INSERT INTO post_tags (post_id, tag_id) VALUES (1, 1);
+INSERT INTO post_tags (post_id, tag_id) VALUES (1, 4);
+
+INSERT INTO post_tags (post_id, tag_id) VALUES (2, 1);
+INSERT INTO post_tags (post_id, tag_id) VALUES (2, 4);
+
+INSERT INTO post_tags (post_id, tag_id) VALUES (3, 1);
+INSERT INTO post_tags (post_id, tag_id) VALUES (3, 2);
+
+INSERT INTO post_tags (post_id, tag_id) VALUES (4, 3);
+INSERT INTO post_tags (post_id, tag_id) VALUES (4, 5);
+
+INSERT INTO post_tags (post_id, tag_id) VALUES (5, 3);
+INSERT INTO post_tags (post_id, tag_id) VALUES (5, 2);

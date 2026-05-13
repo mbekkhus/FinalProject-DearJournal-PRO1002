@@ -297,3 +297,27 @@ button:hover {
   order: 2;
 }
 
+.post-tags {
+  margin-top: 12px;
+}
+
+.post-tags a {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+
+  opacity: 0.6;
+  text-decoration: none;
+  color: rgba(47, 42, 38, 0.6);
+  margin-right: 12px;
+  border-bottom: 1px solid transparent;
+}
+
+.post-tags a:hover {
+  color: rgba(47, 42, 38, 0.9);
+  border-bottom: 1px solid rgba(47, 42, 38, 0.3);
+  opacity: 1;
+}
+
+.post-tags a::before {
+  content: "#";
+}
