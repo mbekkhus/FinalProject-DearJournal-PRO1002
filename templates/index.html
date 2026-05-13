@@ -2,18 +2,25 @@
 {% block title %}Forside{% endblock %}
 
 {% block content %}
-  <h2>Innlegg</h2>
+<h2 class="section-label">Latest</h2>
 
-  {% for post in posts %}
-    <article>
-      <h3>
-        <a href="{{ url_for('view_post', post_id=post['id']) }}">
-          {{ post['title'] }}
-        </a>
-      </h3>
-      <p><small>{{ post['date'] }}</small></p>
-      <p>{{ post['body'][:100] }}...</p>
-    </article>
-    <hr>
-  {% endfor %}
+{% for post in posts %}
+<article class="post-preview">
+
+  <img src="{{ url_for('static', filename='images/' ~ post['image']) }}" alt="Post image" class="post-image">
+
+  <div class="post-content">
+    <p class="post-date">{{ post['date'] }}</p>
+
+    <h3>
+      <a href="{{ url_for('view_post', post_id=post['id']) }}">
+        {{ post['title'] }}
+      </a>
+    </h3>
+
+    <p>{{ post['body'][:120] }}...</p>
+  </div>
+
+</article>
+{% endfor %}
 {% endblock %}

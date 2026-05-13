@@ -2,24 +2,24 @@
 {% block title %}Rediger innlegg{% endblock %}
 
 {% block content %}
-  <h2>Rediger innlegg</h2>
+<h2>Edit post</h2>
 
-  <form method="post">
-    <p>
-      <label>Tittel:</label><br>
-      <input type="text" name="title" value="{{ post['title'] }}" required>
-    </p>
+<form method="post">
+  <p>
+    <label>Title:</label><br>
+    <input type="text" name="title" value="{{ post['title'] }}" required>
+  </p>
 
-    <p>
-      <label>Dato:</label><br>
-      <input type="date" name="date" value="{{ post['date'] }}" required>
-    </p>
+  <p>
+    <label>Date:</label><br>
+    <input type="date" name="date" value="{{ post['date'] }}" required>
+  </p>
 
-    <p>
-      <label>Innhold:</label><br>
-      <textarea name="body" rows="12" style="width: 100%;" required>{{ post['body'] }}</textarea>
-    </p>
+  <p>
+    <label>Content:</label><br>
+    <textarea name="body" rows="12" style="width: 100%;" required>{{ post['body'] }}</textarea>
+  </p>
 
-    <button type="submit">Lagre endringer</button>
-  </form>
+  <button type="submit">Save changes</button>
+</form>
 {% endblock %}
