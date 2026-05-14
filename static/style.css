@@ -1,3 +1,14 @@
+/* ------------------------------
+   Base
+------------------------------ */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ebe6dc;
+  color: #2f2a26;
+}
+
 a {
   color: #2f2a26;
   text-decoration: none;
@@ -11,6 +22,22 @@ a:hover {
   border-bottom: 1px solid #2f2a26;
 }
 
+hr {
+  display: none;
+}
+
+/* ------------------------------
+   Layout
+------------------------------ */
+
+main {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 48px;
+  background: #f8f5ef;
+  border: 1px solid #d2c8b8;
+}
+
 main a {
   opacity: 0.7;
 }
@@ -19,22 +46,36 @@ main a:hover {
   opacity: 1;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #ebe6dc;
-  color: #2f2a26;
-}
-
 footer {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 24px 32px;
+  padding: 32px;
+  color: rgba(47, 42, 38, 0.6);
 }
+
+.footer-inner {
+  border-top: 1px solid rgba(210, 200, 184, 0.7);
+  padding-top: 24px;
+}
+
+.footer-inner p {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  margin: 0 0 10px;
+}
+
+.footer-inner small {
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* ------------------------------
+   Header / Navigation
+------------------------------ */
 
 header {
   width: 100%;
-  padding: 24px 48px 24px; /* denne er mindre, 48 for større */
+  padding: 24px 48px;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(47, 42, 38, 0.15);
 }
@@ -49,31 +90,28 @@ header {
 header h1 {
   font-family: Georgia, serif;
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   letter-spacing: 0.04em;
   margin: 0;
 }
 
 nav a {
   position: relative;
-  top: 12px;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  opacity: 0.65;
   border-bottom: 1px solid transparent;
 }
 
 nav a:hover {
+  opacity: 1;
   border-bottom: 1px solid #2f2a26;
 }
 
-main {
-  max-width: 1000px;
-  margin: 32px auto;
-  padding: 48px;
-  background: #f8f5ef;
-  border: 1px solid #d2c8b8;
-}
+/* ------------------------------
+   Hero
+------------------------------ */
 
 .hero {
   width: 100%;
@@ -114,14 +152,9 @@ main {
   margin: 4px 0 0;
 }
 
-.section-label {
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  color: rgba(47, 42, 38, 0.6);
-  margin-bottom: 24px;
-}
+/* ------------------------------
+   Typography
+------------------------------ */
 
 h2 {
   font-family: Georgia, serif;
@@ -136,18 +169,22 @@ h3 {
   font-weight: 400;
 }
 
+.section-label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: rgba(47, 42, 38, 0.6);
+  margin-bottom: 24px;
+}
+
+/* ------------------------------
+   Articles / Single post page
+------------------------------ */
+
 article {
   padding: 56px 0;
   border-bottom: 1px solid rgba(210, 200, 184, 0.6);
-}
-
-article:first-of-type {
-  padding-top: 72px;
-}
-
-article:first-of-type h3 {
-  font-size: 2rem;
-  line-height: 1.3;
 }
 
 article:last-child {
@@ -172,10 +209,6 @@ article p:first-of-type {
   color: rgba(47, 42, 38, 0.65);
 }
 
-hr {
-  display: none;
-}
-
 .signature {
   font-family: "Allura", cursive;
   font-size: 2rem;
@@ -188,69 +221,9 @@ hr {
   width: fit-content;
 }
 
-input,
-textarea {
-  box-sizing: border-box;
-  border: 1px solid #d2c8b8;
-  background: #fffdf8;
-  font: inherit;
-}
-
-.form-field,
-.comment-field {
-  padding: 8px 10px;
-  font-size: 0.95rem;
-}
-
-.form-field {
-  width: 100%;
-}
-
-.comment-field {
-  width: 85%;
-}
-
-button {
-  margin-top: 4px;
-  padding: 10px 18px;
-  border: 1px solid #2f2a26;
-  background: #2f2a26;
-  color: #fffdf8;
-  cursor: pointer;
-}
-
-button:hover {
-  background: transparent;
-  color: #2f2a26;
-}
-
-.comment-form {
-  margin-top: 40px;
-  max-width: 640px;
-}
-
-.comment-form h3 {
-  margin-bottom: 28px;
-}
-
-.comment-form p {
-  margin-bottom: 20px;
-}
-
-.comment-form label,
-.form-section label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-}
-
-.form-section p {
-  margin-bottom: 18px;
-}
-
-.back-link {
-  margin-top: 32px;
-}
+/* ------------------------------
+   Post previews on homepage
+------------------------------ */
 
 .post-preview {
   display: grid;
@@ -263,6 +236,28 @@ button:hover {
 
 .post-preview:last-child {
   border-bottom: none;
+}
+
+.post-preview:first-of-type {
+  grid-template-columns: 240px 1fr;
+}
+
+.post-preview:first-of-type .post-image {
+  width: 240px;
+  height: 280px;
+}
+
+.post-preview:first-of-type h3 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.post-preview:nth-of-type(even) {
+  grid-template-columns: 1fr 180px;
+}
+
+.post-preview:nth-of-type(even) .post-image {
+  order: 2;
 }
 
 .post-image {
@@ -280,22 +275,9 @@ button:hover {
   margin-bottom: 8px;
 }
 
-.post-preview:first-of-type {
-  grid-template-columns: 240px 1fr;
-}
-
-.post-preview:first-of-type .post-image {
-  width: 240px;
-  height: 280px;
-}
-
-.post-preview:nth-of-type(even) {
-  grid-template-columns: 1fr 180px;
-}
-
-.post-preview:nth-of-type(even) .post-image {
-  order: 2;
-}
+/* ------------------------------
+   Tags
+------------------------------ */
 
 .post-tags {
   margin-top: 12px;
@@ -304,12 +286,15 @@ button:hover {
 .post-tags a {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
-
   opacity: 0.6;
   text-decoration: none;
   color: rgba(47, 42, 38, 0.6);
   margin-right: 12px;
   border-bottom: 1px solid transparent;
+}
+
+.post-tags a::before {
+  content: "#";
 }
 
 .post-tags a:hover {
@@ -318,6 +303,145 @@ button:hover {
   opacity: 1;
 }
 
-.post-tags a::before {
-  content: "#";
+/* ------------------------------
+   Forms
+------------------------------ */
+
+input,
+textarea {
+  box-sizing: border-box;
+  border: 1px solid #d2c8b8;
+  background: #fffdf8;
+  font: inherit;
+}
+
+input[type="date"] {
+  font-family: "Inter", sans-serif;
+}
+
+.form-field,
+.comment-field {
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  border: 1px solid #d2c8b8;
+  background: #fffdf8;
+  font-family: "Inter", sans-serif;
+}
+
+.form-field:focus,
+.comment-field:focus {
+  outline: none;
+  border-color: rgba(47, 42, 38, 0.4);
+  box-shadow: 0 0 0 2px rgba(47, 42, 38, 0.05);
+}
+
+.form-field {
+  width: 100%;
+  max-width: 100%;
+}
+
+.comment-field {
+  width: 85%;
+  max-width: 640px;
+}
+
+textarea.form-field,
+textarea.comment-field {
+  padding: 14px 16px;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.form-section p {
+  margin-bottom: 28px;
+}
+
+.form-section label,
+.comment-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.comment-form {
+  margin-top: 40px;
+  max-width: 640px;
+}
+
+.comment-form h3 {
+  margin-bottom: 28px;
+}
+
+.comment-form p {
+  margin-bottom: 20px;
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+
+button {
+  margin-top: 4px;
+  padding: 10px 18px;
+  border: 1px solid #2f2a26;
+  background: #2f2a26;
+  color: #fffdf8;
+  cursor: pointer;
+}
+
+button:hover {
+  background: transparent;
+  color: #2f2a26;
+}
+
+/* ------------------------------
+   Comments
+------------------------------ */
+
+.comments-title {
+  margin-bottom: 28px;
+}
+
+.comment {
+  max-width: 640px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(210, 200, 184, 0.5);
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment-title {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: rgba(47, 42, 38, 0.95);
+  opacity: 0.85;
+}
+
+.comment-meta {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+  color: rgba(47, 42, 38, 0.55);
+  margin: 0 0 18px;
+}
+
+.comment-body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 2px 0 0;
+  color: rgba(47, 42, 38, 0.75);
+}
+
+/* ------------------------------
+   Utility
+------------------------------ */
+
+.back-link {
+  margin-top: 32px;
 }

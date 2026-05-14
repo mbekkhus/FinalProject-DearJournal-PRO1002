@@ -4,20 +4,20 @@
 {% block content %}
 <h2>Edit post</h2>
 
-<form method="post">
+<form method="post" class="form-section">
   <p>
-    <label>Title:</label><br>
-    <input type="text" name="title" value="{{ post['title'] }}" required>
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-field" value="{{ post['title'] }}" required>
   </p>
 
   <p>
-    <label>Date:</label><br>
-    <input type="date" name="date" value="{{ post['date'] }}" required>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date" class="form-field" value="{{ post['date'] }}" required>
   </p>
 
   <p>
-    <label>Content:</label><br>
-    <textarea name="body" rows="12" style="width: 100%;" required>{{ post['body'] }}</textarea>
+    <label for="body">Content:</label>
+    <textarea name="body" id="body" rows="8" class="form-field" required>{{ post['body'] }}</textarea>
   </p>
 
   <button type="submit">Save changes</button>

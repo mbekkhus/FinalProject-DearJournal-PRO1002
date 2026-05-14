@@ -16,16 +16,14 @@
 
 <hr>
 
-<h3>Comments</h3>
+<h3 class="comments-title">Comments</h3>
 
 <div>
   {% for comment in comments %}
   <div class="comment">
-    <p>
-      <strong>{{ comment['title'] }}</strong><br>
-      <small>{{ comment['author'] }} – {{ comment['date'] }}</small>
-    </p>
-    <p>{{ comment['content'] }}</p>
+    <h4 class="comment-title">{{ comment['title'] }}</h4>
+    <p class="comment-meta">{{ comment['author'] }} – {{ comment['date'] }}</p>
+    <p class="comment-body">{{ comment['content'] }}</p>
   </div>
   {% else %}
   <p>No comments yet.</p>
