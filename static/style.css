@@ -272,7 +272,7 @@ article p:first-of-type {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   color: rgba(47, 42, 38, 0.6);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 /* ------------------------------
@@ -286,7 +286,7 @@ article p:first-of-type {
 .post-tags a {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
-  opacity: 0.6;
+  opacity: 0.7;
   text-decoration: none;
   color: rgba(47, 42, 38, 0.6);
   margin-right: 12px;

@@ -1,9 +1,94 @@
+# Dear Journal
+
+Dear Journal is a personal blogging application built with Flask and SQLite.
+The app lets users view blog posts, read individual posts, add comments, edit existing posts, and filter posts by tags. 
 
 
-“Open http://127.0.0.1:5001”
+## Features 
 
-Run the app:
-.venv/bin/python3 app.py
+- View all blog posts on the homepage 
+- View a single blog post
+- Create new blog posts 
+- Edit existing blog posts 
+- Add comments to posts 
+- Display title, date, body, image and tags for each post 
+- Filter blog posts by tag 
+- SQLite database with seed data 
+- Jinja2 template inheritance with a shared base layout 
 
-Open:
+
+## Technologies used 
+
+- Python 
+- Flask 
+- SQLite 
+- Jinja2 
+- HTML
+- CSS
+
+
+## Setup and how to run
+
+Clone the repository:
+
+git clone https://github.com/mbekkhus/PRO1002-Project-Assignment.git
+cd PRO1002-Project-Assignment
+
+Create and activate a virtual environment: 
+
+python3 -m venv .venv
+source .venv/bin/activate 
+
+Install Flask: 
+
+pip install flask 
+
+Create the database: 
+
+sqlite3 blog.db < schema.sql
+
+Run the application: 
+
+.venv/bin/python3 app.py 
+
+Open in browser: 
+
 http://127.0.0.1:5001
+
+
+
+## Project structure 
+
+app.py - Flask routes and application logic 
+database.py - Database connection and query functions 
+schema.sql - Database schema and seed data 
+templates/ - Jinja2 HTML templates 
+static/ - CSS and images 
+
+
+## Known limitations 
+
+- There is no login system, so creating and editing posts is open
+- Tags are added through the database seed data, not through the create/edit forms
+- The project does not include delete functionality.
+- The date field is stored in ISO format to make sorting by date easier
+
+
+## Future improvements 
+
+- Add login/logout functionality 
+- Add delete functionality for posts and comments 
+- Allow users to add and edit tags from the form 
+- Add flash messages after creating or editing posts 
+- Add more automated tests 
+
+
+## Security considerations 
+
+The app uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database. 
+
+
+## Testing 
+
+The application has been manually tested by creating posts, editing posts, viewing individual posts, adding comments, and filtering posts by tags. 
+
