@@ -1,7 +1,7 @@
 # Dear Journal
 
 Dear Journal is a personal blogging application built with Flask and SQLite.
-The app lets users view blog posts, read individual posts, add comments, edit existing posts, and filter posts by tags. 
+The application lets users view blog posts, read individual posts, add comments, edit existing posts, and filter posts by tags. 
 
 
 ## Features 
@@ -85,7 +85,7 @@ static/ - CSS and images
 
 ## Security considerations 
 
-The app uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database. 
+The application uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database. 
 
 
 ## Testing 
@@ -103,22 +103,13 @@ The following user flows have been tested:
 
 Basic validation has been implemented in the Flask routes to ensure that required fields are not empty before saving data.
 
-Database operations have been verified by ensuring that data is correctly stored and retrieved using SQLite queries. 
-
-Due to the scope of the project, automated tests have not been implemented. 
+Database operations have also been tested using pytest and SQLite. A simple automated test creates a temporary test database, loads the schema and seed data, and verifies that the database contains at least 10 blog posts.
 
 ## How to run tests 
 
-Testing is performed manually through the browser. 
+Run the following command from the project root: 
 
-To test the application: 
+pytest 
 
-- Start the application using the instructions above 
-- Create a new blog post 
-- View posts on the homepage
-- Open a single post 
-- Edit an existing post 
-- Add comments 
-- Click on tags to filters posts 
+The automated test will create a temporary SQLite test database, load the schema and seed data, verify that the database contains at least 10 posts, and then remove the temporary database after the test is completed. 
 
-These steps verify the main functionality of the application. 
