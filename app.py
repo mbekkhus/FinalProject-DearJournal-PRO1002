@@ -43,9 +43,10 @@ def create_post():
         title = request.form.get("title", "").strip()
         date = request.form.get("date", "").strip()
         body = request.form.get("body", "").strip()
+        image = request.form.get("image", "").strip()
 
-        if title and date and body:
-            add_post(title, date, body)
+        if title and date and body and image:
+            add_post(title, date, body, image)
             return redirect(url_for("index"))
 
     return render_template("create.html")

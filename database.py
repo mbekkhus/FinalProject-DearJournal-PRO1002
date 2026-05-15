@@ -42,10 +42,11 @@ def add_comment(post_id, title, author, date, content):
     conn.close()
 
 
-def add_post(title, date, body):
+def add_post(title, date, body, image):
     conn = get_connection()
     conn.execute(
-        "INSERT INTO posts (title, date, body) VALUES (?, ?, ?)", (title, date, body)
+        "INSERT INTO posts (title, date, body, image) VALUES (?, ?, ?, ?)",
+        (title, date, body, image),
     )
     conn.commit()
     conn.close()
