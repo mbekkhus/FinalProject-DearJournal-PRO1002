@@ -632,3 +632,58 @@ button:hover {
 .modal-delete {
   padding: 9px 16px;
 }
+
+/* ------------------------------
+   Mobile  
+-------------------------------*/
+@media (max-width: 700px) {
+  header {
+    padding: 20px 24px;
+  }
+
+  .header-inner {
+ 
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  main {
+    margin: 20px 16px;
+    padding: 28px 24px;
+  }
+
+  .hero {
+    height: 240px;
+    margin: 32px auto 24px;
+  }
+
+  .hero-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .post-preview,
+  .post-preview:first-of-type,
+  .post-preview:nth-of-type(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .post-preview:nth-of-type(even) .post-image {
+    order: 0;
+  }
+
+ .post-image,
+ .post-preview:first-of-type .post-image {
+  width: 100%;
+  max-width: 360px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+  .comment-field {
+    width: 100%;
+  }
+
+  .comment {
+    max-width: 100%;
+  }
+}
