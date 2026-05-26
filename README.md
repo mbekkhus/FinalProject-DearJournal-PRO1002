@@ -70,7 +70,7 @@ static/ - CSS and images
 ## Known limitations 
 
 - There is no login system, so creating and editing posts is open
-- Tags are added through the database seed data, not through the create/edit forms
+- Tags can be added when creating a post, but existing tags cannot yet be edited from the edit form
 - The date field is stored in ISO format to make sorting by date easier
 
 
@@ -97,6 +97,7 @@ The following user flows have been tested:
 - Viewing all posts on the homepage 
 - Viewing individual blog posts 
 - Editing existing blog posts 
+- Deleting blog posts
 - Adding and deleting comments
 - Filtering posts by tags 
 
