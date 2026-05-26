@@ -5,28 +5,28 @@ TEST_DB = "test.db"
 
 
 def test_database_contains_posts():
-    # Slett gammel testdatabase
+    # Delete old test database
     if os.path.exists(TEST_DB):
         os.remove(TEST_DB)
 
-    # Lag testdatabase
+    # Create test database
     conn = sqlite3.connect(TEST_DB)
     cursor = conn.cursor()
 
-    # Last inn skjema og testdata
+    # Load schema and test data
     with open("schema.sql", "r") as f:
         schema = f.read()
 
     cursor.executescript(schema)
 
-    # Hent poster
+    # Fetch posts
     cursor.execute("SELECT * FROM posts")
     posts = cursor.fetchall()
 
-    # Test at databasen inneholder minst 10 innlegg
+    # Test that the database contains at least 10 posts
     assert len(posts) >= 10
 
     conn.close()
 
-    # Rydd opp
+    # Clean up
     os.remove(TEST_DB)

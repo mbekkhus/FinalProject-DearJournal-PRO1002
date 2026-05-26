@@ -182,8 +182,16 @@ h3 {
    Articles / Single post page
 ------------------------------ */
 
+.post-body {
+  max-width: 720px;
+  font-size: 1.03rem;
+  line-height: 1.8;
+  color: rgba(47, 42, 38, 0.8);
+  white-space: pre-wrap;
+}
+
 article {
-  padding: 56px 0;
+  padding: 56px 0 40px;
   border-bottom: 1px solid rgba(210, 200, 184, 0.6);
 }
 
@@ -201,6 +209,7 @@ article p {
   max-width: 720px;
   font-size: 1.05rem;
   line-height: 1.75;
+  color: rgba(47, 42, 38, 0.7);
 }
 
 article p:first-of-type {
@@ -213,12 +222,9 @@ article p:first-of-type {
   font-family: "Allura", cursive;
   font-size: 2rem;
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 32px;
   margin-left: 8px;
   opacity: 0.85;
-  border-top: 1px solid #d2c8b8;
-  padding-top: 12px;
-  width: fit-content;
 }
 
 /* ------------------------------
@@ -303,6 +309,50 @@ article p:first-of-type {
   opacity: 1;
 }
 
+.tag-select-label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  opacity: 0.65;
+}
+
+.tag-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.tag-options input {
+  display: none;
+}
+
+.tag-options span {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px; 
+  border: 1px solid rgba(210, 200, 184, 0.9);
+  background: #f8f5ef;
+  color: rgba(47, 42, 38, 0.72);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-options span:hover {
+  border-color: rgba(47, 42, 38, 0.5);
+  background: #e7dfd1;
+  color: rgba(47, 42, 38, 1);
+
+  transform: translateY(-1px);
+}
+
+.tag-options input:checked + span {
+  background: #ebe4d7;
+  border-color: rgba(47, 42, 38, 0.4);
+  color: rgba(47, 42, 38, 0.9);
+}
+
 /* ------------------------------
    Forms
 ------------------------------ */
@@ -314,7 +364,7 @@ select {
   border: 1px solid #d2c8b8;
   background: #fffdf8;
   font-family: "Inter", sans-serif;
-  color: rgba(47, 42, 38, 0.75)
+  color: rgba(47, 42, 38, 0.75);
 }
 
 input[type="date"] {
@@ -387,7 +437,7 @@ textarea.comment-field {
   display: block;
   margin-bottom: 8px;
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .comment-form {
@@ -401,6 +451,26 @@ textarea.comment-field {
 
 .comment-form p {
   margin-bottom: 20px;
+}
+
+.empty-comments {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.comment-delete-link {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  opacity: 0.75;
+  font: inherit;
+  cursor: pointer;
+}
+
+.comment-delete-link:hover {
+  border-bottom: 1px solid rgba(47, 42, 38, 0.35);
 }
 
 /* ------------------------------
@@ -421,6 +491,50 @@ button:hover {
   color: #2f2a26;
 }
 
+.post-actions {
+  display: flex;
+  align-items: center;
+  
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(47, 42, 38, 0.5);
+}
+
+.inline-delete-form {
+  display: inline-flex;
+  margin: 0;
+}
+
+.delete-link {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.post-actions a,
+.post-actions button {
+  opacity: 1;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+}
+
+.post-actions a:hover,
+.post-actions button:hover {
+  color: rgba(47, 42, 38, 0.8);
+  border-bottom: 1px solid rgba(47, 42, 38, 0.35);
+}
+
+.meta-separator {
+  margin: 0 7px;
+  font-size: 1.1em;
+  line-height: 1;
+ 
+}
+
 /* ------------------------------
    Comments
 ------------------------------ */
@@ -430,7 +544,7 @@ button:hover {
 }
 
 .comment {
-  max-width: 640px;
+  max-width: 560px;
   padding: 24px 0;
   border-bottom: 1px solid rgba(210, 200, 184, 0.5);
 }
@@ -449,6 +563,9 @@ button:hover {
 }
 
 .comment-meta {
+  display: flex;
+  align-items: center;
+
   font-size: 0.78rem;
   opacity: 0.7;
   letter-spacing: 0.04em;
@@ -460,7 +577,7 @@ button:hover {
   font-size: 0.95rem;
   line-height: 1.7;
   margin: 2px 0 0;
-  color: rgba(47, 42, 38, 0.75);
+  color: rgba(47, 42, 38, 0.7);
 }
 
 /* ------------------------------
@@ -469,4 +586,49 @@ button:hover {
 
 .back-link {
   margin-top: 32px;
+}
+
+/* ------------------------------
+   Overlay  
+-------------------------------*/
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(47, 42, 38, 0.25);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-overlay.is-open {
+  display: flex;
+}
+
+.modal-box {
+  width: 360px;
+  background: #f8f5ef;
+  border: 1px solid #d2c8b8;
+  padding: 32px;
+}
+
+.modal-box h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  margin-bottom: 24px;
+  color: rgba(47, 42, 38, 0.7);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-cancel,
+.modal-delete {
+  padding: 9px 16px;
 }

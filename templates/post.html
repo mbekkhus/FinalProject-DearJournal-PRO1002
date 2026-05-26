@@ -6,12 +6,24 @@
   <h2>{{ post['title'] }}</h2>
 
   <p>
-    <small>{{ post['date'] }}</small> |
-    <a href="{{ url_for('edit_post', post_id=post['id']) }}">Edit</a>
+    <small>{{ post['date'] }}</small>
   </p>
 
-  <div style="white-space: pre-wrap;">{{ post['body'] }}</div>
+  <div class="post-body">{{ post['body'] }}</div>
+
   <p class="signature">-marte</p>
+
+  <div class="post-actions">
+    <a href="{{ url_for('edit_post', post_id=post['id']) }}">Edit</a>
+
+    <span class="meta-separator">·</span>
+
+    <form method="post" action="{{ url_for('delete_post_route', post_id=post['id']) }}" class="inline-delete-form">
+      <button type="button" class="delete-link" id="open-delete-modal">
+        Delete
+      </button>
+    </form>
+  </div>
 </article>
 
 <hr>
@@ -22,11 +34,27 @@
   {% for comment in comments %}
   <div class="comment">
     <h4 class="comment-title">{{ comment['title'] }}</h4>
-    <p class="comment-meta">{{ comment['author'] }} – {{ comment['date'] }}</p>
+    <div class="comment-meta">
+
+      {{ comment['author'] }}
+      <span class="meta-separator">·</span>
+      {{ comment['date'] }}
+      <span class="meta-separator">·</span>
+
+      <form method="post" action="{{ url_for('delete_comment_route', comment_id=comment['id'], post_id=post['id']) }}"
+        class="inline-delete-form">
+        <button type="submit" class="comment-delete-link">
+          Delete
+        </button>
+      </form>
+    </div>
     <p class="comment-body">{{ comment['content'] }}</p>
   </div>
   {% else %}
-  <p>No comments yet.</p>
+
+  <p class="empty-comments">
+    Be the first one to leave a comment &lt;3
+  </p>
   {% endfor %}
 </div>
 
@@ -48,7 +76,7 @@
 
     <p>
       <label for="date">Date:</label>
-      <input type="text" name="date" id="date" class="comment-field" required>
+      <input type="date" name="date" id="date" class="comment-field" required>
     </p>
 
     <p>
@@ -65,4 +93,50 @@
 <p class="back-link">
   <a href="{{ url_for('index') }}">← Back</a>
 </p>
+
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal-box">
+    <h3>Delete post?</h3>
+    <p>This action cannot be undone.</p>
+
+    <div class="modal-actions">
+      <button type="button" class="modal-cancel" id="close-delete-modal">
+        Cancel
+      </button>
+
+      <form method="post" action="{{ url_for('delete_post_route', post_id=post['id']) }}">
+        <button type="submit" class="modal-delete">
+          Delete
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const openDeleteModal = document.getElementById("open-delete-modal");
+  const closeDeleteModal = document.getElementById("close-delete-modal");
+  const deleteModal = document.getElementById("delete-modal");
+
+  openDeleteModal.addEventListener("click", () => {
+    deleteModal.classList.add("is-open");
+  });
+
+  closeDeleteModal.addEventListener("click", () => {
+    deleteModal.classList.remove("is-open");
+  });
+
+  deleteModal.addEventListener("click", (event) => {
+    if (event.target === deleteModal) {
+      deleteModal.classList.remove("is-open");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      deleteModal.classList.remove("is-open");
+    }
+  });
+</script>
+
 {% endblock %}

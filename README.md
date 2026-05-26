@@ -10,6 +10,7 @@ The application lets users view blog posts, read individual posts, add comments,
 - View a single blog post
 - Create new blog posts 
 - Edit existing blog posts 
+- Delete blog posts and comments
 - Add comments to blog posts 
 - Display title, date, body, image and tags for each post 
 - Filter blog posts by tag 
@@ -70,14 +71,12 @@ static/ - CSS and images
 
 - There is no login system, so creating and editing posts is open
 - Tags are added through the database seed data, not through the create/edit forms
-- The project does not include delete functionality.
 - The date field is stored in ISO format to make sorting by date easier
 
 
 ## Future improvements 
 
 - Add login/logout functionality 
-- Add delete functionality for posts and comments 
 - Allow users to add and edit tags from the form 
 - Add flash messages after creating or editing posts 
 - Add more automated tests 
@@ -98,7 +97,7 @@ The following user flows have been tested:
 - Viewing all posts on the homepage 
 - Viewing individual blog posts 
 - Editing existing blog posts 
-- Adding comments to posts 
+- Adding and deleting comments
 - Filtering posts by tags 
 
 Basic validation has been implemented in the Flask routes to ensure that required fields are not empty before saving data.

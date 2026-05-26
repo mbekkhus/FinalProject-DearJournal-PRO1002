@@ -22,4 +22,8 @@
 
   <button type="submit">Save changes</button>
 </form>
+
+<p class="back-link">
+  <a href="{{ url_for('view_post', post_id=post['id']) }}">← Back</a>
+</p>
 {% endblock %}

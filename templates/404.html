@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2>404</h2>
+
+    <p>
+        This page could not be found.
+    </p>
+
+    <p class="back-link">
+        <a href="{{ url_for('index') }}">← Back home</a>
+    </p>
+</section>
+{% endblock %}

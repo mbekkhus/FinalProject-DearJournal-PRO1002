@@ -37,10 +37,18 @@ CREATE TABLE post_tags (
 -- Eksempel innlegg
 INSERT INTO posts (title, date, body, image)
 VALUES (
-  'I dag',
-  '2026-05-14',
-  'Nå begynner ting å sitte. Små justeringer, men helheten begynner å bli veldig bra.',
+  'Videre',
+  '2026-05-26',
+  'Det er fortsatt noen ting jeg vil endre, men jeg prøver å ikke bli sittende fast i detaljer hele tiden. Noe må bare bli ferdig nok, og jeg tror kanskje vi er der nå.',
   'soft-duvet.jpg'
+);
+
+INSERT INTO posts (title, date, body, image)
+VALUES (
+  'I dag',
+  '2026-05-13',
+  'Nå begynner ting å sitte. Små justeringer, men helheten begynner å bli veldig bra.',
+  'beige-terasse.jpg'
 );
 
 INSERT INTO posts (title, date, body, image)
@@ -177,3 +185,5 @@ INSERT INTO post_tags (post_id, tag_id) VALUES (9, 5);
 
 INSERT INTO post_tags (post_id, tag_id) VALUES (10, 3);
 INSERT INTO post_tags (post_id, tag_id) VALUES (10, 2);
+INSERT INTO post_tags (post_id, tag_id) VALUES (11, 3);
+INSERT INTO post_tags (post_id, tag_id) VALUES (11, 2);
