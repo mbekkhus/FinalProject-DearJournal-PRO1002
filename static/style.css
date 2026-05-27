@@ -56,6 +56,10 @@ footer {
 .footer-inner {
   border-top: 1px solid rgba(210, 200, 184, 0.7);
   padding-top: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .footer-inner p {
@@ -67,6 +71,26 @@ footer {
 .footer-inner small {
   font-size: 0.75rem;
   letter-spacing: 0.03em;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.logout-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+
+  border-bottom: 1px solid transparent;
+}
+
+.logout-link:hover {
+  opacity: 1;
+  border-bottom: 1px solid #2f2a26;
 }
 
 /* ------------------------------
@@ -462,15 +486,22 @@ textarea.comment-field {
   margin: 0;
   padding: 0;
   border: none;
+  border-bottom: 1px solid transparent;
   background: none;
   color: inherit;
-  opacity: 0.75;
+  
   font: inherit;
   cursor: pointer;
 }
 
 .comment-delete-link:hover {
-  border-bottom: 1px solid rgba(47, 42, 38, 0.35);
+  opacity: 1;
+  border-bottom: 1px solid #2f2a26;
+}
+
+.form-error {
+  color: rgba(120, 45, 35, 0.9);
+  margin-bottom: 20px;
 }
 
 /* ------------------------------
@@ -480,8 +511,8 @@ textarea.comment-field {
 button {
   margin-top: 4px;
   padding: 10px 18px;
-  border: 1px solid #2f2a26;
-  background: #2f2a26;
+  border: 1px solid rgba(47, 42, 38, 0.65);
+  background: rgba(47, 42, 38, 0.82);
   color: #fffdf8;
   cursor: pointer;
 }

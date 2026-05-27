@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for
+from flask import Flask, render_template, abort, request, redirect, url_for, session
 from database import (
     get_posts,
     get_post,
@@ -13,6 +13,38 @@ from database import (
 )
 
 app = Flask(__name__)
+
+app.secret_key = "super-secret-key"
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "123"
+
+# Login
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = None
+
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if (
+            username == ADMIN_USERNAME
+            and password == ADMIN_PASSWORD
+        ):
+            session["logged_in"] = True
+
+            next_page = request.args.get("next")
+            return redirect(next_page or url_for("index"))
+
+        error = "Invalid username or password"
+
+    return render_template("login.html", error=error)
+
+# Logout
+@app.get("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("index"))
 
 # Homepage
 @app.get("/")
@@ -41,6 +73,8 @@ def tag_page(tag_name):
 # Create a new post
 @app.route("/post/new", methods=["GET", "POST"])
 def create_post():
+    if not session.get("logged_in"):
+        return redirect(url_for("login", next=request.path))
     if request.method == "POST":
         title = request.form.get("title", "").strip()
         date = request.form.get("date", "").strip()
@@ -78,6 +112,8 @@ def view_post(post_id):
 # Edit a post
 @app.route("/post/<int:post_id>/edit", methods=["GET", "POST"])
 def edit_post(post_id):
+    if not session.get("logged_in"):
+        return redirect(url_for("login", next=request.path))
     post = get_post(post_id)
 
     if post is None:
@@ -97,11 +133,15 @@ def edit_post(post_id):
 # Delete posts and comments
 @app.post("/post/<int:post_id>/delete")
 def delete_post_route(post_id):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
     delete_post(post_id)
     return redirect(url_for("index"))
 
 @app.post("/comment/<int:comment_id>/delete/<int:post_id>")
 def delete_comment_route(comment_id, post_id):
+    if not session.get("logged_in"):
+        return redirect(url_for("login"))
     delete_comment(comment_id)
     return redirect(url_for("view_post", post_id=post_id))
 

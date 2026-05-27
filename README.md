@@ -12,8 +12,10 @@ The application lets users view blog posts, read individual posts, add comments,
 - Edit existing blog posts 
 - Delete blog posts and comments
 - Add comments to blog posts 
-- Display title, date, body, image and tags for each post 
 - Filter blog posts by tag 
+- Display title, date, body, image and tags for each post 
+- Admin login system using Flask sessions
+- Protected create, edit, and delete functionality
 - SQLite database with seed data 
 - Jinja2 template inheritance with a shared base layout 
 
@@ -57,6 +59,13 @@ Open in browser:
 http://127.0.0.1:5001
 
 
+## Login 
+
+Creating, editing, and deleting posts requires admin login. 
+
+Username: admin 
+Password: 123 
+
 
 ## Project structure 
 
@@ -69,14 +78,13 @@ static/ - CSS and images
 
 ## Known limitations 
 
-- There is no login system, so creating and editing posts is open
+- The login system uses a simple hardcoded admin account for demonstration purposes
 - Tags can be added when creating a post, but existing tags cannot yet be edited from the edit form
 - The date field is stored in ISO format to make sorting by date easier
 
 
 ## Future improvements 
 
-- Add login/logout functionality 
 - Allow users to add and edit tags from the form 
 - Add flash messages after creating or editing posts 
 - Add more automated tests 
@@ -104,6 +112,7 @@ The following user flows have been tested:
 Basic validation has been implemented in the Flask routes to ensure that required fields are not empty before saving data.
 
 Database operations have also been tested using pytest and SQLite. A simple automated test creates a temporary test database, loads the schema and seed data, and verifies that the database contains at least 10 blog posts.
+
 
 ## How to run tests 
 

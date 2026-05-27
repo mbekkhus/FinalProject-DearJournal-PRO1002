@@ -16,7 +16,11 @@
     <div class="header-inner">
       <h1><a href="{{ url_for('index') }}">Dear Journal</a></h1>
       <nav>
-        <a href="{{ url_for('create_post') }}">New post</a>
+        {% if session.get("logged_in") %}
+        <a href="{{ url_for('create_post') }}">NEW POST</a>
+        {% else %}
+        <a href="{{ url_for('login', next=request.path) }}">LOGIN</a>
+        {% endif %}
       </nav>
     </div>
     <hr>
@@ -35,8 +39,17 @@
 
   <footer>
     <div class="footer-inner">
-      <p>Dear Journal</p>
-      <small>Built with Flask + SQLite · Images from Unsplash</small>
+
+      <div class="footer-info">
+        <p>Dear Journal</p>
+        <small>Built with Flask + SQLite · Images from Unsplash</small>
+      </div>
+
+      {% if session.get("logged_in") %}
+      <a href="{{ url_for('logout') }}" class="logout-link">
+        Log out
+      </a>
+      {% endif %}
     </div>
   </footer>
 
