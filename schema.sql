@@ -34,15 +34,7 @@ CREATE TABLE post_tags (
     PRIMARY KEY (post_id, tag_id)
 );
 
--- Eksempel innlegg
-INSERT INTO posts (title, date, body, image)
-VALUES (
-  'Videre',
-  '2026-05-26',
-  'Det er fortsatt noen ting jeg vil endre, men jeg prøver å ikke bli sittende fast i detaljer hele tiden. Noe må bare bli ferdig nok, og jeg tror kanskje vi er der nå.',
-  'soft-duvet.jpg'
-);
-
+-- Exampel
 INSERT INTO posts (title, date, body, image)
 VALUES (
   'I dag',
@@ -123,7 +115,15 @@ VALUES (
   'abstract-circle-beige.jpg'
 );
 
--- Eksempel kommentarer
+INSERT INTO posts (title, date, body, image)
+VALUES (
+  'Videre',
+  '2026-05-26',
+  'Det er fortsatt noen ting jeg vil endre, men jeg prøver å ikke bli sittende fast i detaljer hele tiden. Noe må bare bli ferdig nok, og jeg tror kanskje vi er der nå.',
+  'soft-duvet.jpg'
+);
+
+-- Example comments
 INSERT INTO comments (post_id, title, author, date, content)
 VALUES (1, 'Fin lesning', 'Hillevi', '2026-05-14', 'Dette føles som et fint punkt å være på.');
 

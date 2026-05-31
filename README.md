@@ -92,7 +92,8 @@ static/ - CSS and images
 
 ## Security considerations 
 
-The application uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database. 
+The application uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database, and Jinja2´s built-in auto-escaping protect against script injection in rendered HTML.
+The Flask secret key is loaded from an enviironment variable, with a development fallback for local testing. 
 
 
 ## Testing 
@@ -111,7 +112,8 @@ The following user flows have been tested:
 
 Basic validation has been implemented in the Flask routes to ensure that required fields are not empty before saving data.
 
-Database operations have also been tested using pytest and SQLite. A simple automated test creates a temporary test database, loads the schema and seed data, and verifies that the database contains at least 10 blog posts.
+Automated tests have been implemented using pytest and SQLite. 
+The test suite uses a temporary test database created from the schema file and verifies key functionality such as database setup, tag filtering, comment creation, and selected application routes. 
 
 
 ## How to run tests 
@@ -120,5 +122,6 @@ Run the following command from the project root:
 
 pytest 
 
-The automated test will create a temporary SQLite test database, load the schema and seed data, verify that the database contains at least 10 posts, and then remove the temporary database after the test is completed. 
+The test suite creates a temporary SQLite test database, loads the schema and seed data, and runs a set of automated tests covering database functionality and selected Flask routes. 
+The temporary database is removed automatically after the tests have completed. 
 

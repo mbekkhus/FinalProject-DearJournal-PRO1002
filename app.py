@@ -12,9 +12,12 @@ from database import (
     get_posts_by_tag,
 )
 
+import os
+
 app = Flask(__name__)
 
-app.secret_key = "super-secret-key"
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key")
+
 ADMIN_USERNAME = "admin"
 ADMIN_PASSWORD = "123"
 
