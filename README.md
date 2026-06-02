@@ -42,9 +42,9 @@ Create and activate a virtual environment:
 python3 -m venv .venv
 source .venv/bin/activate 
 
-Install Flask: 
+Install dependecies: 
 
-pip install flask 
+pip install -r requirements.txt
 
 Create the database: 
 
@@ -88,12 +88,13 @@ static/ - CSS and images
 - Allow users to add and edit tags from the form 
 - Add flash messages after creating or editing posts 
 - Add more automated tests 
+- Replace the hardcoded admin account with proper user authentication system
 
 
 ## Security considerations 
 
 The application uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database, and Jinja2´s built-in auto-escaping protect against script injection in rendered HTML.
-The Flask secret key is loaded from an enviironment variable, with a development fallback for local testing. 
+The Flask secret key is loaded from an environment variable, with a development fallback for local testing. 
 
 
 ## Testing 
