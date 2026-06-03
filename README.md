@@ -34,29 +34,34 @@ The application lets users view blog posts, read individual posts, add comments,
 
 Clone the repository:
 
+```
 git clone https://github.com/mbekkhus/PRO1002-Project-Assignment.git
 cd PRO1002-Project-Assignment
+```
 
 Create and activate a virtual environment: 
 
+```
 python3 -m venv .venv
-source .venv/bin/activate 
+source .venv/bin/activate
+```
 
 Install dependencies: 
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 Create the database: 
 
-sqlite3 blog.db < schema.sql
+`sqlite3 blog.db < schema.sql`
 
 Run the application: 
 
-.venv/bin/python3 app.py 
+`.venv/bin/python3 app.py`
+
 
 Open in browser: 
 
-http://127.0.0.1:5001
+<http://127.0.0.1:5001>
 
 
 ## Login 
@@ -93,7 +98,7 @@ static/ - CSS and images
 
 ## Security considerations 
 
-The application uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database, and Jinja2´s built-in auto-escaping protect against script injection in rendered HTML.
+The application uses parameterized SQL queries with placeholders to reduce the risk of SQL injection. User input is also validated in the Flask routes before being saved to the database, and Jinja2's built-in auto-escaping protects against script injection in rendered HTML.
 The Flask secret key is loaded from an environment variable, with a development fallback for local testing. 
 
 
@@ -121,7 +126,7 @@ The test suite uses a temporary test database created from the schema file and v
 
 Run the following command from the project root: 
 
-pytest 
+`pytest`
 
 The test suite creates a temporary SQLite test database, loads the schema and seed data, and runs a set of automated tests covering database functionality and selected Flask routes. 
 The temporary database is removed automatically after the tests have completed. 
