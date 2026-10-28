@@ -3,6 +3,14 @@
 Dear Journal is a personal blogging application built with Flask and SQLite.
 The application lets users view blog posts, read individual posts, add comments, edit existing posts, and filter posts by tags. 
 
+## Preview 
+
+![Home page](screenshots/home.png)
+
+![Post with comments](screenshots/post.png)
+
+![Creating a new post](screenshots/new-post.png)
+
 
 ## Features 
 
