@@ -35,8 +35,8 @@ The application lets users view blog posts, read individual posts, add comments,
 Clone the repository:
 
 ```
-git clone https://github.com/mbekkhus/PRO1002-Project-Assignment.git
-cd PRO1002-Project-Assignment
+git clone https://github.com/mbekkhus/FinalProject-DearJournal-PRO1002.git
+cd FinalProject-DearJournal-PRO1002
 ```
 
 Create and activate a virtual environment: 
